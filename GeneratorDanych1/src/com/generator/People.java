@@ -13,18 +13,17 @@ public class People {
 
     List<User> users = new ArrayList<>();
 
-    public List<User> getPerson() { return users; }
-    public void setPerson(List<User> users) { this.users = users; }
+    public List<User> getUsers() { return users; }
+    public void setUser(List<User> users) { this.users = users; }
 
-    private static int ID = 0;
-    private int lastID;
+    private static int ID;
 
-    public void addPerson(String n,String s,String l){
-        User user = new User(n, s, l);
+    public void addUser(String n,String s,String l){
+        User user = new User(n, s, l,dataID());
         users.add(user);
-        user.setID(dataID());
     }
-    public void delPerson(String name) {
+    public void delUser(String name)
+    {
         users.removeIf(user -> user.getName().equals(name));
     }
     public void upDate(int x,String n,String s,String l){
@@ -40,10 +39,17 @@ public class People {
         }
         return null;
     }
-    // ID's
     public int dataID(){
         ID++;
-        this.lastID = ID;
-        return lastID;
+        this.ID = ID;
+        return ID;
     }
+    public void createUser(User user){
+        user.setName("name");
+        user.setSurname("surname");
+        user.setLogin("login");
+        user.setID(dataID());
+    }
+
+
 }
