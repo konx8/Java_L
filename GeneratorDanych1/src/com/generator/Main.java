@@ -21,9 +21,8 @@ public class Main {
         people.addUser("jacek4","plasek4","mis4");
 
         for (int i = 1; i < 10; i++) {
-            User user = new User();
-            people.createUser(user);
-            people.getUsers().add(user);
+            User user = new User("imie"+i, "nazwisko"+i,"login"+i);
+            people.addUser(user);
             }
 
         people.upDate(0,"tomek","tomasz","tomcio1");

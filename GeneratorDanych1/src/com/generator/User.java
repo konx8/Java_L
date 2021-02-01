@@ -20,9 +20,6 @@ public class User {
         this.login = l;
     }
 
-    public User() {
-
-    }
     @Override
     public String toString(){
         return (
@@ -49,6 +46,6 @@ public class User {
     }
 
     public int getID() { return id; }
-    public void setID(int ID) { this.id = id; }
+    public void setID(int id) { this.id = id; }
 
 }

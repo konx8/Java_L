@@ -16,10 +16,10 @@ public class People {
     public List<User> getUsers() { return users; }
     public void setUser(List<User> users) { this.users = users; }
 
-    private static int ID;
+    private static int ID = 0;
 
     public void addUser(String n,String s,String l){
-        User user = new User(n, s, l,dataID());
+        User user = new User(n, s, l,getNextId());
         users.add(user);
     }
     public void delUser(String name)
@@ -39,16 +39,13 @@ public class People {
         }
         return null;
     }
-    public int dataID(){
+    public int getNextId(){
         ID++;
-        this.ID = ID;
         return ID;
     }
-    public void createUser(User user){
-        user.setName("name");
-        user.setSurname("surname");
-        user.setLogin("login");
-        user.setID(dataID());
+    public void addUser(User user){
+        user.setID(getNextId());
+        users.add(user);
     }
 
 
