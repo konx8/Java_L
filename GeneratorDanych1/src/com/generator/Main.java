@@ -15,10 +15,10 @@ public class Main {
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
         People people = new People();
-        people.addUser("jacek","plasek","mis");
-        people.addUser("jacek2","plasek2","mis2");
-        people.addUser("jacek3","plasek3","mis3");
-        people.addUser("jacek4","plasek4","mis4");
+        people.addUser("jacek","placek","mis");
+        people.addUser("jacek2","placek2","mis2","jacek@gmail.com");
+        people.addUser("jacek3","placek3","mis3");
+        people.addUser("jacek4","placek4","mis4");
 
         for (int i = 1; i < 10; i++) {
             User user = new User("imie"+i, "nazwisko"+i,"login"+i);

@@ -6,6 +6,7 @@ public class User {
     String surname;
     String login;
     int id;
+    String email;
 
     public User(String n, String s, String l, int id) {
         this.name = n;
@@ -14,11 +15,14 @@ public class User {
         this.id = id;
     }
 
+
     public User(String n, String s, String l) {
         this.name = n;
         this.surname = s;
         this.login = l;
+
     }
+    public User(){}
 
     @Override
     public String toString(){
@@ -48,4 +52,6 @@ public class User {
     public int getID() { return id; }
     public void setID(int id) { this.id = id; }
 
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }

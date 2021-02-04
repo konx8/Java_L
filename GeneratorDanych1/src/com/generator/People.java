@@ -13,40 +13,66 @@ public class People {
 
     List<User> users = new ArrayList<>();
 
-    public List<User> getUsers() { return users; }
-    public void setUser(List<User> users) { this.users = users; }
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUser(List<User> users) {
+        this.users = users;
+    }
 
     private static int ID = 0;
 
-    public void addUser(String n,String s,String l){
-        User user = new User(n, s, l,getNextId());
+    public void addUser(String n, String s, String l) {
+        User user = new User(n, s, l, getNextId());
         users.add(user);
     }
-    public void delUser(String name)
-    {
+
+    public void addUser(String n, String s, String l, String email) {
+        User user = new User(n, s, l, getNextId());
+        if (emailAdress(email)){ user.setEmail(email); }
+        else { user.setEmail("brak emaila"); }
+
+        users.add(user);
+    }
+
+    public void delUser(String name) {
         users.removeIf(user -> user.getName().equals(name));
     }
-    public void upDate(int x,String n,String s,String l){
+
+    public void upDate(int x, String n, String s, String l) {
         users.get(x).setName(n);
         users.get(x).setSurname(s);
         users.get(x).setLogin(l);
     }
-    public User readData(String name){
-        for(User user:users){
-            if(user.getName().equals(name)){
+
+    public User readData(String name) {
+        for (User user : users) {
+            if (user.getName().equals(name)) {
                 return user;
             }
         }
         return null;
     }
-    public int getNextId(){
+
+    public int getNextId() {
         ID++;
         return ID;
     }
-    public void addUser(User user){
+
+    public void addUser(User user) {
         user.setID(getNextId());
         users.add(user);
     }
 
-
+    public boolean emailAdress(String email) {
+        if ((email.contains("@"))) {
+            System.out.println("email poprawny");
+        } else {
+            System.out.println("email niepoprawny");
+        }
+        return false;
+    }
 }
+
+
